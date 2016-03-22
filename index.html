@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title> Pixel MMORPG Singelplayer </title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js?71631"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+	</head>
+	<body onload="pageLoad();">
+	<div class="container">
+		
+
+		<div class="row" >
+			<div class=".col-lg-4"></div>
+			<div class=".col-lg-4">
+				<h1> Pixel MMORPG <small>Singelplayer</small> </h1>
+			</div>
+			<div class=".col-lg-4">Status: <span id="running"> Not running</span></div>
+		</div>
+
+		<div class="row" id="infobox">
+			<div class=".col-lg-4"></div>
+			<div class=".col-lg-4 bg-info img-rounded">
+				<p>Press "s" to start.</p>
+				<p>If the pixel is <span id="redSpan">red</span>, that means there is a monster and you have to press space a couple times until you defeated the monster.</p>
+				<p>Press "space" to attack the monster </p>
+				<p>Press "i" to get rid of this info-box</p>
+				<p>Press "k" to stop the game.</p>
+			</div>
+			<div class=".col-lg-4"></div>
+		</div>		
+
+		<div class="row" >
+			<div class=".col-lg-4"></div>
+			<div class=".col-lg-4">
+				<h2> Score <small>Killed Monsters: <span id="killedM"> 0 </span></small></h2>
+			</div>
+			<div class=".col-lg-4"></div>
+		</div>
+
+		<div class="row row-centered">
+			<div class=".col-lg-4"></div>
+			<div class=".col-lg-4 col-centered">
+				<canvas id="dot" height="400" width="400">
+					<p>Canvas is not supported in your browser.</p>
+				</canvas>
+			</div>
+			<div class=".col-lg-4"></div>
+		</div>
+	</div>
+  	</body>
+  	<footer>
+  		<p id="foooter"> Yeti likes memes!</p>
+  	</footer>
+</html>
