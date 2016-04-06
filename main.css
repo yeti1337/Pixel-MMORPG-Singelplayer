@@ -1,20 +1,39 @@
+body { 
+	padding-top: 25px;
+}
+
+.col-centered{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+#ladderboard-container{
+	padding-top: 25px;
+}
+
+.form{
+	margin-top: 5px;
+}
+
+#login-label{
+	 display: block;
+}
+
+#reg-laddername{
+	margin-bottom: 5px;	
+}
+
 #redSpan{
-	color:red;
+	color: red;
 }
 
-#foooter{
-	color: rgba(0,0,0,0.2);
-
+.noselect {
+  -webkit-touch-callout: none; 
+  -webkit-user-select: none;   
+  -khtml-user-select: none;  
+  -moz-user-select: none;      
+  -ms-user-select: none;     
+  user-select: none;          
 }
-
-.row-centered {
-    text-align:center;
-}
-.col-centered {
-    display:inline-block;
-    float:none;
-    text-align:left;
-    margin-right:-4px;
-}
-
-

@@ -1,59 +1,92 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title> Pixel MMORPG Singelplayer </title>
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js?71631"></script>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
-    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-	</head>
-	<body onload="pageLoad();">
-	<div class="container">
-		
-
-		<div class="row" >
-			<div class=".col-lg-4"></div>
-			<div class=".col-lg-4">
-				<h1> Pixel MMORPG <small>Singelplayer</small> </h1>
-			</div>
-			<div class=".col-lg-4">Status: <span id="running"> Not running</span></div>
-		</div>
-
-		<div class="row" id="infobox">
-			<div class=".col-lg-4"></div>
-			<div class=".col-lg-4 bg-info img-rounded">
-				<p>Press "s" to start.</p>
-				<p>If the pixel is <span id="redSpan">red</span>, that means there is a monster and you have to press space a couple times until you defeated the monster.</p>
-				<p>Press "space" to attack the monster </p>
-				<p>Press "i" to get rid of this info-box</p>
-				<p>Press "k" to stop the game.</p>
-			</div>
-			<div class=".col-lg-4"></div>
-		</div>		
-
-		<div class="row" >
-			<div class=".col-lg-4"></div>
-			<div class=".col-lg-4">
-				<h2> Score <small>Killed Monsters: <span id="killedM"> 0 </span></small></h2>
-			</div>
-			<div class=".col-lg-4"></div>
-		</div>
-
-		<div class="row row-centered">
-			<div class=".col-lg-4"></div>
-			<div class=".col-lg-4 col-centered">
-				<canvas id="dot" height="400" width="400">
-					<p>Canvas is not supported in your browser.</p>
-				</canvas>
-			</div>
-			<div class=".col-lg-4"></div>
-		</div>
+<head>
+	<title>Pixel MMORPG Semi-Multiplayer </title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.2.min.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">	
+	<script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+	<script src="https://cdn.firebase.com/js/simple-login/1.6.4/firebase-simple-login.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://craig.global.ssl.fastly.net/js/mousetrap/mousetrap.min.js?71631"></script>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body class='noselect'>
+	<div class="container"> 
+		<ul class="nav nav-pills nav-justified">
+			<li>
+				<h1>Pixel MMORPG <br>
+				<small>Semi-Multiplayer</small></h1>
+			</li>
+			<li id='game-pill'>			<a href='#'>Game 				</a></li>
+			<li id='ladderboard-pill'>	<a href='#'>Leaderboard			</a></li>
+		</ul>
 	</div>
-  	</body>
-  	<footer>
-  		<p id="foooter"> Yeti likes memes!</p>
-  	</footer>
+	<div id="game-container" class="container"> 
+		<div class="row">
+			<div class="col-md-4"></div>
+				<div class="col-md-4 col-centered">
+					<div class=".col-lg-4"></div>
+					<div class=".col-lg-4">
+						Status: 
+						<span id="running"> Not running</span>
+						<br>
+						Name: 
+						<span id="farmName"> Nobody </span>
+					</div>
+					<input id='reg-laddername' class='form' type="text" placeholder="Name you playing for"></input>
+					<button type="button" class="btn-primary" id="change-name">change</button>
+					<br>
+					<div class="row" id="infobox">
+						<div class=".col-lg-4"></div>
+						<div class=".col-lg-4 bg-info img-rounded">
+							<p>Press "s" to start.</p>
+							<p>If the pixel is <span id="redSpan">red</span>, that means there is a monster and you have to press space a couple times until you defeated the monster.</p>
+							<p>Click on the red square to murder the monster </p>
+							<p>Press "i" to get rid of this info-box</p>
+							<p>Press "r" to refresh your score.</p>
+							<p>Press "k" to stop the game.</p>
+								</div>
+								<div class=".col-lg-4"></div>
+							</div>		
+
+							<div class="row" >
+							<div class=".col-lg-4"></div>
+							<div class=".col-lg-4">
+								<h2> Score <small>:<span id="killedM"> 0 </span></small></h2>
+							</div>
+								<div class=".col-lg-4"></div>
+							</div>
+
+							<div class="row row-centered">
+								<div class=".col-lg-4"></div>
+								<div class=".col-lg-4 col-centered">
+								<canvas id="dot" height="400" width="400">
+									<p>Canvas is not supported in your browser.</p>
+								</canvas>
+								</div>
+								<div class=".col-lg-4"></div>
+							</div>
+						<div class="col-md-4"></div>
+						</div>
+			</div>
+		</div>
+	</div>	
+		<div id="ladderboard-container" class="container hidden"> 
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4 col-centered">
+					<table class="table" id="leaderboardTable">
+						<tr>
+							<th>Player</th>
+							<th>Score</th>
+						</tr>
+					</table>
+				</div>
+				<div class="col-md-4"></div>
+			</div>
+		</div>	
+	<script type="text/javascript" src="main.js"></script> 
+</body>
 </html>
