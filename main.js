@@ -178,7 +178,7 @@ function changeScore(name){
 };
 
 //copied bluntly from the firebase example with some changes
-var LEADERBOARD_SIZE = 100;
+var LEADERBOARD_SIZE = 5;
 var refLeaderBoard = new Firebase('https://sizzling-heat-6129.firebaseio.com//users');
 var htmlForPath = {};
 
